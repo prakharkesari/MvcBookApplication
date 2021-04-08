@@ -17,23 +17,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-/* 
- * Definisco come entity la classe quindi si collegherà automaticamente alla tabella
- * LOGIN dell'applicazione
-*/
 @Entity
 @Table(name = "books")
 public class books {
 	
-	/* Indico qual'è il campo chiave primaria*/
 	@Id
-	// Definisco che la Id fa riferimento a una SEQUENCE generata dal db (la seq_books_id)
+
 	@GeneratedValue(
 		    strategy = GenerationType.SEQUENCE,
 		    generator = "seq_books_id"
 		)
 	@Column(name = "bookid")
-	// Dico di utilizzare la sequenza definita in precedenza
+
 	@SequenceGenerator(name="seq_books_id", allocationSize=1)	
 	private Long bookid;
 	
