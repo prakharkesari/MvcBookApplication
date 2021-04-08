@@ -14,15 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/* 
- * Definisco come entity la classe quindi si collegherà automaticamente alla tabella
- * LOGIN dell'applicazione
-*/
+
 @Entity
 @Table(name = "rents")
 public class rents {
 	
-	/* Indico qual'è il campo chiave primaria*/
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "rentid")
@@ -31,9 +28,6 @@ public class rents {
 	@Column(name = "daterent", nullable = false)
 	private Timestamp daterent;
 	
-	/*
-	 * Stabilisco la tipologia di relazione con la tavola users
-	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="iduser", nullable = false)
 	private users users;	
@@ -45,10 +39,8 @@ public class rents {
         this.users = users;
     }
 
-	/*
-	 * Stabilisco la tipologia di relazione con la tavola books
-	 */    
-    @OneToOne
+
+	@OneToOne
 	@JoinColumn(name = "idbook")
 	private books books;    
 	
